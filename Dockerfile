@@ -2,10 +2,12 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY . .
+COPY ./package.json .
 
 RUN npm install
 
+COPY . .
+
 ENV PATH=$PATH:/app/node_modules/.bin
 
-CMD [ "nodemon", "/app/app.js" ]
+CMD [ "nodemon", "src/app.js" ]
