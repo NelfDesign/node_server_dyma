@@ -3,7 +3,8 @@ const { MongoClient } = require('mongodb');
 const app = express();
 let count;
 
-const client = new MongoClient('mongodb://db');
+const client = new MongoClient(`mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PWD}@db`);
+
 async function run() {
     try {
         await client.connect();
